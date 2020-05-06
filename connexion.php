@@ -1,17 +1,23 @@
 <?php
+//Identifiant de connexion a la base de donnée
+define("HOST", "localhost");
+define("PORT", 5432);
+define("BDD_NAME", ""); 
+define("BDD_USERNAME", "");
+define("BDD_PASS", "");
 
-//TO DO : classe connexion
+//Connection a la BDD :
+try
+{
+    $bdd = new PDO('pgsql:host=' . HOST . ';port=' . PORT . ';dbname=' . BDD_NAME . ';user=' . BDD_USERNAME . ';password=' . BDD_PASS);
 
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-    // $dbh = new PDO('pgsql:host=lucaslelaidier.fr;port=5432;dbname=apidb;user=postgres;password=mysecretpassword');
-    $dbh = new PDO('pgsql:host=host;port=5432;dbname=api;user=postgres;password=password');
-    $stmt = $dbh->prepare('SELECT * FROM api.categorie');
-   
-    if ($stmt->execute()) {
-        while ($row = $stmt->fetch()) {
-            echo '<pre>';
-            print_r($row);
-        }
-    } else {
-        echo "probleme";
-    }
+    echo "Connexion à la base de donnée réussie !";
+}
+catch(Exception $e)
+{
+    echo "Aie, erreur : $e->getMessage";
+}
+?>
