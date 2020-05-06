@@ -3,7 +3,7 @@ RewriteRule ^connexion$ view/connexion.php [L]
 
 ErrorDocument 404 /view/error404.php
 
-<Files connexion.php> 
+<Files bdd.php> 
     Deny From All
 </Files>
 <Files configuration.php> 
