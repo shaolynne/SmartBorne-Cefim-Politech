@@ -14,10 +14,10 @@ try
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
-    echo "Connexion à la base de donnée réussie !";
+    //echo "Connexion à la base de donnée réussie !";
 }
 catch(Exception $e)
 {
-    echo "Aie, erreur : $e->getMessage";
+    //echo "Aie, erreur : $e->getMessage";
 }
 ?>
